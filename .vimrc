@@ -7,7 +7,7 @@ set cursorline
 hi clear cursorline
 
 set showmatch "対応するカッコ表示
-set matchtime=1 "カッコを強調する時間0.x秒
+set matchtime=05 "カッコを強調する時間0.x秒
 
 syntax on
 filetype plugin indent on "ファイルの種類を検出してハイライト

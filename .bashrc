@@ -201,7 +201,9 @@ if [ "${OS}" = "Windows_NT" ]; then
 		alias ping='wincmd ping'
 fi
 
-alias g++='g++ -std=c++11 -Wall -Wextra -Wconversion'
+#alias g++='g++ -std=c++11 -Wall -Wextra -Wconversion'
+alias g++='g++ -std=c++11 -Wall -Wextra'
+alias cl='clang++ -std=c++11 -Wall -Wextra'
 
 alias jobs='jobs -l'
 
@@ -210,3 +212,35 @@ alias jobs='jobs -l'
 export PS1="\n\[\e[38;5;167m\]\u@\h\[\e[0m\] \[\e[38;5;71m\][$MSYSTEM]\[\e[0m\] \[\e[38;5;178m\]\w\[\e[0m\]\n\$"
 
 eval `dircolors $HOME/.dir_colors` #lsの色設定読み込み
+
+#PATHをscriptsに通す
+#PATH="$PATH":/home/kuisiba/scripts
+#alias cdl='~/scripts/cdl'
+
+# 現在のディレクトリの中にあるディレクトリを番号指定で移動
+function cdl {
+    local -a dirlist opt_f=false
+    local i d num=0 dirnum opt opt_f
+    while getopts ":f" opt ; do
+        case $opt in
+            f ) opt_f=true ;;
+        esac
+    done
+    shift $(( OPTIND -1 ))
+    dirlist[0]=..
+    # external pipe scope. array is established.
+    for d in * ; do test -d "$d" && dirlist[$((++num))]="$d" ; done
+    # TODO: Is seq installed?
+    for i in $( seq 0 $num ) ; do printf "%3d %s%b\n" $i "$( $opt_f && echo -n "$PWD/" )${dirlist[$i]}" ; done
+    read -p "select number: " dirnum
+    if [ -z "$dirnum" ] ; then
+        echo "$FUNCNAME: Abort." 1>&2
+    elif ( echo $dirnum | egrep '^[[:digit:]]+$' > /dev/null ) ; then
+        cd "${dirlist[$dirnum]}"
+    else
+        echo "$FUNCNAME: Something wrong." 1>&2
+    fi
+}
+
+export VISUAL="vim"
+
