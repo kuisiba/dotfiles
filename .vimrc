@@ -7,12 +7,12 @@ set cursorline
 hi clear cursorline
 
 set showmatch "対応するカッコ表示
-set matchtime=05 "カッコを強調する時間0.x秒
+set matchtime=03 "カッコを強調する時間0.x秒
 
 syntax on
 filetype plugin indent on "ファイルの種類を検出してハイライト
-set tabstop=4 "インデントの幅
-set shiftwidth=4 "indent時にズレる幅
+set tabstop=2 "インデントの幅
+set shiftwidth=2 "indent時にズレる幅
 set expandtab "タブをスペースに変換
 "set autoindent "自動インデント
 set smartindent "auto indent
