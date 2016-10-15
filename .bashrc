@@ -209,7 +209,7 @@ alias jobs='jobs -l'
 
 #bashのプロンプト設定(railscastsとおなじ)
 #\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[35m\]$MSYSTEM\[\e[0m\] \[\e[33m\]\w\[\e[0m\]\n\$"
-export PS1="\n\[\e[38;5;167m\]\u@\h\[\e[0m\] \[\e[38;5;71m\][$MSYSTEM]\[\e[0m\] \[\e[38;5;178m\]\w\[\e[0m\]\n\$"
+export PS1="\n\[\e[38;5;27m\]\u@\h\[\e[0m\] \[\e[38;5;77m\][$MSYSTEM]\[\e[0m\] \[\e[38;5;226m\]\w\[\e[0m\]\n\$"
 
 eval `dircolors $HOME/.dir_colors` #lsの色設定読み込み
 
