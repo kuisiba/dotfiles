@@ -202,45 +202,18 @@ if [ "${OS}" = "Windows_NT" ]; then
 fi
 
 #alias g++='g++ -std=c++11 -Wall -Wextra -Wconversion'
-alias g++='g++ -std=c++11 -Wall -Wextra'
-alias cl='clang++ -std=c++11 -Wall -Wextra'
+alias g++='g++ -std=c++14 -Wall -Wextra'
+alias cl='clang++ -std=c++14 -Wall -Wextra'
 
 alias jobs='jobs -l'
 
-#bashのプロンプト設定(railscastsとおなじ)
+#bashのプロンプト設定(nightskyとおなじ)
 #\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[35m\]$MSYSTEM\[\e[0m\] \[\e[33m\]\w\[\e[0m\]\n\$"
 export PS1="\n\[\e[38;5;27m\]\u@\h\[\e[0m\] \[\e[38;5;77m\][$MSYSTEM]\[\e[0m\] \[\e[38;5;226m\]\w\[\e[0m\]\n\$"
 
 eval `dircolors $HOME/.dir_colors` #lsの色設定読み込み
 
-#PATHをscriptsに通す
-#PATH="$PATH":/home/kuisiba/scripts
-#alias cdl='~/scripts/cdl'
-
-# 現在のディレクトリの中にあるディレクトリを番号指定で移動
-function cdl {
-    local -a dirlist opt_f=false
-    local i d num=0 dirnum opt opt_f
-    while getopts ":f" opt ; do
-        case $opt in
-            f ) opt_f=true ;;
-        esac
-    done
-    shift $(( OPTIND -1 ))
-    dirlist[0]=..
-    # external pipe scope. array is established.
-    for d in * ; do test -d "$d" && dirlist[$((++num))]="$d" ; done
-    # TODO: Is seq installed?
-    for i in $( seq 0 $num ) ; do printf "%3d %s%b\n" $i "$( $opt_f && echo -n "$PWD/" )${dirlist[$i]}" ; done
-    read -p "select number: " dirnum
-    if [ -z "$dirnum" ] ; then
-        echo "$FUNCNAME: Abort." 1>&2
-    elif ( echo $dirnum | egrep '^[[:digit:]]+$' > /dev/null ) ; then
-        cd "${dirlist[$dirnum]}"
-    else
-        echo "$FUNCNAME: Something wrong." 1>&2
-    fi
-}
-
 export VISUAL="vim"
 
+export PATH=$PATH:/c/Users/kuisiba/.rustup/toolchains/nightly-x86_64-pc-windows-gnu/lib/rustlib/x86_64-pc-windows-gnu/lib/
+export PATH=$PATH:/c/Users/kuisiba/.cargo/bin
