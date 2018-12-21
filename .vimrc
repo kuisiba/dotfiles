@@ -38,6 +38,7 @@ set whichwrap=h,l "hとlで前行末、次行頭へ
 set backspace=indent,eol,start "BSで削除できるものの指定
 
 inoremap { {}<LEFT>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap ( ()<LEFT>
 inoremap [ []<LEFT>
 
