@@ -7,7 +7,7 @@ set cursorline
 hi clear cursorline
 
 set showmatch "対応するカッコ表示
-set matchtime=02 "カッコを強調する時間0.x秒
+set matchtime=01 "カッコを強調する時間0.x秒
 
 set tabstop=4 "インデントの幅
 set shiftwidth=4 "indent時にズレる幅
@@ -48,8 +48,34 @@ Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'morhetz/gruvbox'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'natebosch/vim-lsc'
+Plug 'ryanolsonx/vim-lsp-javascript'
+"Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 call plug#end()
+
+if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+      \ 'name': 'javascript support using typescript-language-server',
+      \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+      \ 'whitelist': ['javascript', 'javascript.jsx']
+      \ })
+endif
+
+let g:lsp_async_completion = 1
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand("~/vim-lsp.log")
+autocmd FileType javascript setlocal omnifunc=lsp#complete
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 set hidden
 let g:racer_cmd = "/c/Users/kuisiba/.cargo/bin/racer.exe"
@@ -60,9 +86,8 @@ let g:rustfmt_command = '/c/Users/kuisiba/.cargo/bin/rustfmt.exe'
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 
+
 set background=dark
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
-"set background=dark
-"colorscheme nightsky
-"highlight Normal ctermbg=none
+
