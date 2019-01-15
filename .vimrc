@@ -17,15 +17,15 @@ set foldmethod=indent "折り畳み
 
 syntax on
 filetype plugin indent on "ファイルの種類を検出してハイライト
-"set autoindent "自動インデント
-"set smartindent "auto indent
-set ignorecase "大文字小文字区別なく検索
+"set autoindent
+"set smartindent
+"set cindent
+"set ignorecase "大文字小文字区別なく検索
 set smartcase "検索文字列に大文字が含まれてる場合は区別して検索
 set wrapscan "検索時、最後までいったら最初に戻る
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
-set clipboard=unnamed,autoselect "クリップボードにコピー
+"set clipboard=unnamed,autoselect "クリップボードにコピー
 set hlsearch "検索してマッチした部分をハイライト
-set cindent "C言語スタイルのインデント
 
 set list "tabと半角スペースを可視化
 set listchars=tab:>-,trail:-,eol:↲
@@ -37,6 +37,11 @@ set whichwrap=h,l "hとlで前行末、次行頭へ
 
 set backspace=indent,eol,start "BSで削除できるものの指定
 
+nnoremap <silent> y :.w !win32yank.exe -i<CR><CR>
+vnoremap <silent> y :w !win32yank.exe -i<CR><CR>
+nnoremap <silent> p :r !win32yank.exe -o<CR>
+vnoremap <silent> p :r !win32yank.exe -o<CR>
+
 inoremap { {}<LEFT>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap ( ()<LEFT>
@@ -44,7 +49,6 @@ inoremap [ []<LEFT>
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'morhetz/gruvbox'
@@ -67,9 +71,17 @@ if executable('typescript-language-server')
       \ })
 endif
 
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+
 let g:lsp_async_completion = 1
-let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand("~/vim-lsp.log")
+"let g:lsp_log_verbose = 1
+"let g:lsp_log_file = expand("~/vim-lsp.log")
 autocmd FileType javascript setlocal omnifunc=lsp#complete
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -77,15 +89,10 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-set hidden
-let g:racer_cmd = "/c/Users/kuisiba/.cargo/bin/racer.exe"
-let $RUST_SRC_PATH="/c/Users/kuisiba/.rustup/toolchains/stable-x86_64-pc-windows-gnu/lib/rustlib/src/rust/src"
 let g:rustfmt_autosave = 1
-let g:rustfmt_command = '/c/Users/kuisiba/.cargo/bin/rustfmt.exe'
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
-
 
 set background=dark
 colorscheme gruvbox
