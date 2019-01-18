@@ -1,10 +1,10 @@
- alias rm='rm -i'
- alias cp='cp -i'
- alias mv='mv -i'
- alias grep='grep --color'                     # show differences in colour
- alias egrep='egrep --color=auto'              # show differences in colour
- alias fgrep='fgrep --color=auto'              # show differences in colour
- alias ls='ls -hF --color=auto'                 # classify files in colour
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias grep='grep --color'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias ls='ls -hF --color=auto'
 alias g++='g++ -std=c++14 -Wall -Wextra'
 alias cl='clang++ -std=c++14 -Wall -Wextra'
 alias jobs='jobs -l'

@@ -24,7 +24,8 @@ filetype plugin indent on "ファイルの種類を検出してハイライト
 set smartcase "検索文字列に大文字が含まれてる場合は区別して検索
 set wrapscan "検索時、最後までいったら最初に戻る
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
-"set clipboard=unnamed,autoselect "クリップボードにコピー
+set clipboard=unnamedplus
+vnoremap <silent><C-y> :w !win32yank.exe -i<CR><CR>
 set hlsearch "検索してマッチした部分をハイライト
 
 set list "tabと半角スペースを可視化
@@ -36,11 +37,6 @@ set laststatus=2 "ライン表示・その設定
 set whichwrap=h,l "hとlで前行末、次行頭へ
 
 set backspace=indent,eol,start "BSで削除できるものの指定
-
-nnoremap <silent> y :.w !win32yank.exe -i<CR><CR>
-vnoremap <silent> y :w !win32yank.exe -i<CR><CR>
-nnoremap <silent> p :r !win32yank.exe -o<CR>
-vnoremap <silent> p :r !win32yank.exe -o<CR>
 
 inoremap { {}<LEFT>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
@@ -97,4 +93,5 @@ let g:indent_guides_guide_size = 1
 set background=dark
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
+
 
