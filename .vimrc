@@ -34,8 +34,8 @@ vnoremap <silent><C-y> :w !win32yank.exe -i<CR><CR>
 set list "tabと半角スペースを可視化
 set listchars=tab:>-,trail:-,eol:↲
 
-set laststatus=2 "ライン表示・その設定
-set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[ENC=%{&fileencoding}]\[FORMAT=%{&ff}]\[POS=%04l,%04v][%p%%]\[LEN=%L]
+set laststatus=2 "常にライン表示
+set statusline=%F%m%r%h%w\%=%y\[%{&fileencoding}]\[%{&fileformat}]\[pos:%04l,%04v][%p%%]
 
 set whichwrap=h,l "hとlで前行末、次行頭へ
 
