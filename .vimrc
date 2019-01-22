@@ -1,7 +1,7 @@
+scriptencoding utf-8
+
 set number "行番号を表示
 set title "file name 
-
-syntax on
 
 set foldmethod=indent "折り畳み
 
@@ -22,7 +22,6 @@ augroup fileTypeIndent
     autocmd!
     autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=4
 augroup END
-
 
 set hlsearch "検索してマッチした部分をハイライト
 set smartcase "検索文字列に大文字が含まれてる場合は区別して検索
@@ -83,12 +82,13 @@ let g:asyncomplete_auto_popup = 1
 let g:lsp_async_completion = 1
 "let g:lsp_log_verbose = 1
 "let g:lsp_log_file = expand("~/vim-lsp.log")
-"autocmd FileType javascript setlocal omnifunc=lsp#complete
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 imap <c-space> <Plug>(asyncomplete_force_refresh)
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+augroup completion
+    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+augroup END
 
 let g:rustfmt_autosave = 1
 
@@ -97,13 +97,15 @@ let g:prettier#exec_cmd_async = 1
 let g:prettier#quickfix_enabled = 0
 let g:prettier#quickfix_auto_focus = 0
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+augroup prettier
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+augroup END
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 
+syntax on
+
 set background=dark
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
-
-
