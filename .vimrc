@@ -27,7 +27,7 @@ set hlsearch "検索してマッチした部分をハイライト
 set smartcase "検索文字列に大文字が含まれてる場合は区別して検索
 set wrapscan "検索時、最後までいったら最初に戻る
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
-set clipboard=unnamedplus
+set clipboard+=unnamed
 vnoremap <silent><C-y> :w !win32yank.exe -i<CR><CR>
 
 set list "tabと半角スペースを可視化
@@ -55,8 +55,8 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'natebosch/vim-lsc'
-Plug 'ryanolsonx/vim-lsp-javascript'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+"Plug 'ryanolsonx/vim-lsp-javascript'
+"Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 call plug#end()
 
