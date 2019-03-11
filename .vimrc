@@ -28,7 +28,6 @@ set smartcase "検索文字列に大文字が含まれてる場合は区別し�
 set wrapscan "検索時、最後までいったら最初に戻る
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
 set clipboard+=unnamed
-vnoremap <silent><C-y> :w !win32yank.exe -i<CR><CR>
 
 set list "tabと半角スペースを可視化
 set listchars=tab:>-,trail:-,eol:↲
