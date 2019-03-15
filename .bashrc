@@ -1,3 +1,6 @@
+export LANG=ja_JP.UTF-8
+export LC_CTYPE=ja_JP.UTF-8
+
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
