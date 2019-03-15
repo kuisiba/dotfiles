@@ -9,8 +9,7 @@ alias cl='clang++ -std=c++14 -Wall -Wextra'
 alias jobs='jobs -l'
 alias tmux='tmux -u'
 
-export PS1="\[\033[38;5;160m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;106m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\\$\[$(tput sgr0)\]"
-
+export PS1="\[\e[31m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\] \[\e[35m\][\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[35m\]]\[\e[m\]\\n\$ "
 export VISUAL="vim"
-export LSCOLORS='gxfxcxdxbxegedabagacad'
 export PATH=$PATH:$HOME/.cargo/bin
+
