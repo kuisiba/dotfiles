@@ -11,5 +11,5 @@ alias jobs='jobs -l'
 export PS1="\[\033[38;5;160m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;106m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\\$\[$(tput sgr0)\]"
 
 export VISUAL="vim"
-
+export LSCOLORS='gxfxcxdxbxegedabagacad'
 export PATH=$PATH:$HOME/.cargo/bin
