@@ -12,18 +12,6 @@ hi clear cursorline
 set showmatch "対応するカッコ表示
 set matchtime=01 "カッコを強調する時間0.x秒
 
-set tabstop=4 "インデントの幅
-set shiftwidth=4 "indent時にズレる幅
-set expandtab "タブをスペースに変換
-set softtabstop=4 "一度に空白を何個消すか
-"set autoindent
-"set smartindent
-filetype plugin indent on "ファイル種類別にハイライト
-augroup fileTypeIndent
-    autocmd!
-    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=4
-augroup END
-
 set hlsearch "検索してマッチした部分をハイライト
 set smartcase "検索文字列に大文字が含まれてる場合は区別して検索
 set wrapscan "検索時、最後までいったら最初に戻る
@@ -101,9 +89,6 @@ augroup prettier
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 augroup END
 
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-
 syntax on
 
 set termguicolors
@@ -111,3 +96,20 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let ayucolor="mirage"
 colorscheme ayu
+set background=dark
+
+set tabstop=4 "インデントの幅
+set shiftwidth=4 "indent時にズレる幅
+set expandtab "タブをスペースに変換
+set softtabstop=4 "一度に空白を何個消すか
+"set autoindent
+"set smartindent
+filetype plugin indent on "ファイル種類別にハイライト
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=4
+augroup END
+
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 1
