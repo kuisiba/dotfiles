@@ -16,3 +16,8 @@ export PS1="\[\e[31m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\] \[\e[35m\][\[\e[m\]\[\e[33
 export VISUAL="vim"
 export PATH=$PATH:$HOME/.cargo/bin
 
+#disable stop & start(ctrl+s, ctrl+q)
+if [ -t 0 ]; then
+    stty stop undef
+    stty stop undef
+fi
