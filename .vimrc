@@ -43,8 +43,8 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'natebosch/vim-lsc'
-"Plug 'ryanolsonx/vim-lsp-javascript'
-"Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'ryanolsonx/vim-lsp-javascript'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 call plug#end()
 
