@@ -14,10 +14,15 @@ alias tmux='tmux -u'
 
 export PS1="\[\e[31m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\] \[\e[35m\][\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[35m\]]\[\e[m\]\\n\$ "
 export VISUAL="vim"
-export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 #disable stop & start(ctrl+s, ctrl+q)
-if [ -t 0 ]; then
+if [[ -t 0 ]]; then
     stty stop undef
     stty stop undef
+fi
+
+if [[ ! -n $TMUX ]]; then
+    tmux new-session \; split-window -h -d
 fi
