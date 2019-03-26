@@ -44,7 +44,9 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'natebosch/vim-lsc'
 Plug 'ryanolsonx/vim-lsp-javascript'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'npm install', 
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 call plug#end()
 
@@ -80,7 +82,8 @@ augroup END
 
 let g:rustfmt_autosave = 1
 
-let g:prettier#exec_cmd_path = "/usr/bin/prettier"
+
+let g:prettier#exec_cmd_path = "/Users/kuisiba/.nodebrew/current/bin/prettier"
 let g:prettier#exec_cmd_async = 1
 let g:prettier#quickfix_enabled = 0
 let g:prettier#quickfix_auto_focus = 0
@@ -107,7 +110,8 @@ set softtabstop=4 "一度に空白を何個消すか
 filetype plugin indent on "ファイル種類別にハイライト
 augroup fileTypeIndent
     autocmd!
-    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=4
+    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 let g:indent_guides_enable_on_vim_startup = 1
