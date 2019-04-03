@@ -15,6 +15,8 @@ alias tmux='tmux -u'
 export VISUAL="vim"
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=/Library/Java/JavaVirtualMachines/openjdk-12.jdk/Contents/Home/bin:$PATH
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.jdk/Contents/Home
 
 #disable stop & start(ctrl+s, ctrl+q)
 if [[ -t 0 ]]; then
