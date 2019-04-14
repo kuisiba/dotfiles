@@ -19,7 +19,7 @@ set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
 set clipboard+=unnamed
 
 set list "tabと半角スペースを可視化
-set listchars=tab:>-,trail:-,eol:↲
+set listchars=tab:>-,trail:-,eol:↵
 
 set laststatus=2 "常にライン表示
 set statusline=%F%m%r%h%w\%=%y\[%{&fileencoding}]\[%{&fileformat}]\[pos:%04l,%04v][%p%%]
@@ -47,6 +47,7 @@ Plug 'ryanolsonx/vim-lsp-javascript'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install', 
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plug 'posva/vim-vue'
 
 call plug#end()
 
@@ -97,7 +98,7 @@ syntax on
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-let ayucolor="mirage"
+let ayucolor="dark"
 colorscheme ayu
 set background=dark
 
