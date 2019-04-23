@@ -4,7 +4,7 @@ export LC_CTYPE=ja_JP.UTF-8
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias grep='grep --color'
+alias grep='grep --color --exclude='*.swp' --exclude-dir='.git''
 alias ls='ls -hFG'
 alias ll='ls -laG'
 alias g++='g++ -std=c++14 -Wall -Wextra'
