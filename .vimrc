@@ -4,6 +4,9 @@ scriptencoding utf-8
 set number "行番号を表示
 set title "file name 
 
+
+set ambiwidth=double "全角記号の表示ズレ対策
+
 set foldmethod=indent "折り畳み
 
 set cursorline
