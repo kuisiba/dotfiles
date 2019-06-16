@@ -16,7 +16,8 @@ set showmatch "対応するカッコ表示
 set matchtime=01 "カッコを強調する時間0.x秒
 
 set hlsearch "検索してマッチした部分をハイライト
-set smartcase "検索文字列に大文字が含まれてる場合は区別して検索
+set ignorecase
+set smartcase
 set wrapscan "検索時、最後までいったら最初に戻る
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
 set clipboard+=unnamed
