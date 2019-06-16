@@ -32,6 +32,8 @@ set whichwrap=h,l "hとlで前行末、次行頭へ
 
 set backspace=indent,eol,start "BSで削除できるものの指定
 
+set signcolumn=yes "LSPのerror表示とかでガタガタするやつの対策（常時表示
+
 inoremap { {}<LEFT>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap ( ()<LEFT>
