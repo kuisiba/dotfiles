@@ -17,6 +17,8 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=/Library/Java/JavaVirtualMachines/openjdk-12.jdk/Contents/Home/bin:$PATH
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.jdk/Contents/Home
+export PATH=~/.local/bin:$PATH
+export PATH=/Users/kuisiba/Library/Android/sdk/platform-tools:$PATH
 
 #disable stop & start(ctrl+s, ctrl+q)
 if [[ -t 0 ]]; then
