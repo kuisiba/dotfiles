@@ -72,6 +72,14 @@ if executable('rls')
         \ })
 endif
 
+if executable('intelephense')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'intelephense',
+        \ 'cmd': {server_info->['node', expand('/Users/kuisiba/.nodebrew/node/v10.15.3/lib/node_modules/intelephense/lib/intelephense.js'), '--stdio']},
+        \ 'whitelist': ['php'],
+        \ })
+endif
+
 let g:asyncomplete_smart_completion = 1
 let g:asyncomplete_auto_popup = 1
 let g:lsp_async_completion = 1
@@ -88,22 +96,22 @@ augroup END
 let g:rustfmt_autosave = 1
 
 
-let g:prettier#exec_cmd_path = "/Users/kuisiba/.nodebrew/current/bin/prettier"
-let g:prettier#exec_cmd_async = 1
-let g:prettier#quickfix_enabled = 0
-let g:prettier#quickfix_auto_focus = 0
-let g:prettier#autoformat = 0
-augroup prettier
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-augroup END
+"let g:prettier#exec_cmd_path = "/Users/kuisiba/.nodebrew/current/bin/prettier"
+"let g:prettier#exec_cmd_async = 1
+"let g:prettier#quickfix_enabled = 0
+"let g:prettier#quickfix_auto_focus = 0
+"let g:prettier#autoformat = 1
+"augroup prettier
+"    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+"augroup END
 
 syntax on
 
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-let ayucolor="dark"
 colorscheme ayu
+let ayucolor="dark"
 set background=dark
 
 set tabstop=4 "インデントの幅
