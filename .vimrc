@@ -54,6 +54,7 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install', 
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'posva/vim-vue'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
