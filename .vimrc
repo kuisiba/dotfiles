@@ -4,7 +4,6 @@ scriptencoding utf-8
 set number "行番号を表示
 set title "file name 
 
-
 set ambiwidth=double "全角記号の表示ズレ対策
 
 set foldmethod=indent "折り畳み
@@ -34,10 +33,7 @@ set backspace=indent,eol,start "BSで削除できるものの指定
 
 set signcolumn=yes "LSPのerror表示とかでガタガタするやつの対策（常時表示
 
-inoremap { {}<LEFT>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap ( ()<LEFT>
-inoremap [ []<LEFT>
+syntax on
 
 call plug#begin('~/.vim/plugged')
 
@@ -100,7 +96,7 @@ augroup END
 
 let g:rustfmt_autosave = 1
 
-
+"prettier setting
 "let g:prettier#exec_cmd_path = "/Users/kuisiba/.nodebrew/current/bin/prettier"
 "let g:prettier#exec_cmd_async = 1
 "let g:prettier#quickfix_enabled = 0
@@ -110,8 +106,7 @@ let g:rustfmt_autosave = 1
 "    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 "augroup END
 
-syntax on
-
+"colorscheme setting
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -125,7 +120,7 @@ set expandtab "タブをスペースに変換
 set softtabstop=4 "一度に空白を何個消すか
 "set autoindent
 "set smartindent
-filetype plugin indent on "ファイル種類別にハイライト
+filetype plugin indent on "ファイル種類別インデント設定
 augroup fileTypeIndent
     autocmd!
     autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
