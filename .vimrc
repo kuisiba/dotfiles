@@ -37,6 +37,7 @@ syntax on
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'cohama/lexima.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ayu-theme/ayu-vim'
@@ -137,4 +138,4 @@ let g:indent_guides_auto_colors = 1
 set updatetime=250
 
 "ultisnips setting
-let g:UltiSnipsSnippetDirectories=["plugged/vim-snippets/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=["Ultisnips"]
