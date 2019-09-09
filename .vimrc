@@ -53,7 +53,6 @@ Plug 'prettier/vim-prettier', {
 Plug 'posva/vim-vue'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -136,6 +135,3 @@ let g:indent_guides_auto_colors = 1
 
 "git-gutter setting
 set updatetime=250
-
-"ultisnips setting
-let g:UltiSnipsSnippetDirectories=["Ultisnips"]
