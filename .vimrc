@@ -94,6 +94,7 @@ augroup completion
     autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 augroup END
 
+"Rust lsp setting
 let g:rustfmt_autosave = 1
 
 "prettier setting
@@ -114,6 +115,7 @@ colorscheme ayu
 let ayucolor="dark"
 set background=dark
 
+"indent setting
 set tabstop=4 "インデントの幅
 set shiftwidth=4 "indent時にズレる幅
 set expandtab "タブをスペースに変換
