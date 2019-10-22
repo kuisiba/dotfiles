@@ -52,6 +52,7 @@ Plug 'prettier/vim-prettier', {
 Plug 'posva/vim-vue'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
+Plug 'previm/previm'
 
 call plug#end()
 
@@ -105,6 +106,9 @@ let g:rustfmt_autosave = 1
 "augroup prettier
 "    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 "augroup END
+
+"previm setting
+let g:previm_open_cmd = 'open -a Google\ Chrome'
 
 "colorscheme setting
 set termguicolors
