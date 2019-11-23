@@ -40,7 +40,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'cohama/lexima.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'ayu-theme/ayu-vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -53,6 +52,8 @@ Plug 'posva/vim-vue'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'previm/previm'
+Plug 'ayu-theme/ayu-vim'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -114,8 +115,9 @@ let g:previm_open_cmd = 'open -a Google\ Chrome'
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme ayu
-let ayucolor="dark"
+"colorscheme ayu
+"let ayucolor="dark"
+colorscheme nord
 set background=dark
 
 "indent setting
