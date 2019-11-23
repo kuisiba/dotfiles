@@ -26,9 +26,9 @@ if [[ -t 0 ]]; then
     stty stop undef
 fi
 
-if [[ ! -n $TMUX ]]; then
-    tmux new-session \; split-window -h -d
-fi
+#if [[ ! -n $TMUX ]]; then
+#    tmux new-session \; split-window -h -d
+#fi
 
 # get current branch in git repo
 function parse_git_branch() {
