@@ -7,9 +7,8 @@ colors
 zstyle ':completion:*' list-colors "${LS_COLORS}"
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}[%~] %{$reset_color%}
-%#"
-RPROMPT='%b$(git_super_status)'
+PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$reset_color%}%#"
+RPROMPT='%{$fg_no_bold[yellow]%}[%~] %b$(git_super_status)'
 
 autoload -Uz compinit && compinit
 zstyle ':completion::complete:*' use-cache true
