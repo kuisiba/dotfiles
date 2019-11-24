@@ -16,7 +16,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-#alias grep='grep --color=always --exclude='*.swp' --exclude-dir='.git''
+alias grep="grep --color=always --exclude='*.swp' --exclude-dir='.git'"
 alias ls='ls -hFG'
 alias ll='ls -laG'
 
@@ -33,4 +33,12 @@ if [[ -t 0 ]]; then
     stty stop undef
 fi
 
+# for tmux, ctrl-aで先頭に, ctrl-pでコマンド1個前etc
 bindkey -e
+
+export HISTFILE=${HOME}/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=100000
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt EXTENDED_HISTORY
