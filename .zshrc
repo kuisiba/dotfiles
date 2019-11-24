@@ -5,6 +5,7 @@ colors
 zstyle ':completion:*' list-colors "${LS_COLORS}"
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+
 PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$reset_color%}%#"
 RPROMPT="%{$fg_no_bold[yellow]%}[%~]%{$reset_color%}"
 
@@ -32,4 +33,4 @@ if [[ -t 0 ]]; then
     stty stop undef
 fi
 
-
+bindkey -e
