@@ -1,14 +1,12 @@
 export LANG=ja_JP.UTF-8
 
-source /usr/local/Cellar/zsh-git-prompt/0.5/zshrc.sh
-
 autoload -Uz colors
 colors
 zstyle ':completion:*' list-colors "${LS_COLORS}"
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$reset_color%}%#"
-RPROMPT='%{$fg_no_bold[yellow]%}[%~] %b$(git_super_status)'
+RPROMPT="%{$fg_no_bold[yellow]%}[%~]%{$reset_color%}"
 
 autoload -Uz compinit && compinit
 zstyle ':completion::complete:*' use-cache true
