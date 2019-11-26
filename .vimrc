@@ -44,7 +44,7 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'ryanolsonx/vim-lsp-javascript'
+"Plug 'ryanolsonx/vim-lsp-javascript'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install', 
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
@@ -118,7 +118,6 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "colorscheme ayu
 "let ayucolor="dark"
 colorscheme nord
-set background=dark
 
 "indent setting
 set tabstop=4 "インデントの幅
