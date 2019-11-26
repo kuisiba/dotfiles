@@ -1,5 +1,7 @@
 export LANG=ja_JP.UTF-8
 
+setopt IGNOREEOF
+
 autoload -Uz colors
 colors
 zstyle ':completion:*' list-colors "${LS_COLORS}"
