@@ -33,11 +33,8 @@ alias ll='ls -laG'
 
 export VISUAL="vim"
 export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=/Library/Java/JavaVirtualMachines/openjdk-12.jdk/Contents/Home/bin:$PATH
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.jdk/Contents/Home
 export PATH=~/.local/bin:$PATH
-export PATH=/Users/kuisiba/Library/Android/sdk/platform-tools:$PATH
+export PATH=/usr/local/sbin:$PATH
 
 if [[ -t 0 ]]; then
     stty stop undef
@@ -54,3 +51,6 @@ setopt inc_append_history
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt EXTENDED_HISTORY
+
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
