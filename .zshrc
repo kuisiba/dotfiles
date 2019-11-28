@@ -8,17 +8,17 @@ zstyle ':completion:*' list-colors "${LS_COLORS}"
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
-PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$reset_color%}%#"
-RPROMPT='%{$fg_no_bold[yellow]%}[%~]%{$reset_color%}${vcs_info_msg_0_}'
+#PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$reset_color%}%#"
+#RPROMPT='%{$fg_no_bold[yellow]%}[%~]%{$reset_color%}${vcs_info_msg_0_}'
 
-autoload -Uz vcs_info
-setopt prompt_subst
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats " %F{green}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
+#autoload -Uz vcs_info
+#setopt prompt_subst
+#zstyle ':vcs_info:git:*' check-for-changes true
+#zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+#zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+#zstyle ':vcs_info:*' formats " %F{green}%c%u[%b]%f"
+#zstyle ':vcs_info:*' actionformats '[%b|%a]'
+#precmd () { vcs_info }
 
 autoload -Uz compinit && compinit
 zstyle ':completion::complete:*' use-cache true
@@ -54,3 +54,5 @@ setopt EXTENDED_HISTORY
 
 export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
+
+eval "$(starship init zsh)"
