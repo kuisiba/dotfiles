@@ -11,15 +11,6 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 #PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$reset_color%}%#"
 #RPROMPT='%{$fg_no_bold[yellow]%}[%~]%{$reset_color%}${vcs_info_msg_0_}'
 
-#autoload -Uz vcs_info
-#setopt prompt_subst
-#zstyle ':vcs_info:git:*' check-for-changes true
-#zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-#zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-#zstyle ':vcs_info:*' formats " %F{green}%c%u[%b]%f"
-#zstyle ':vcs_info:*' actionformats '[%b|%a]'
-#precmd () { vcs_info }
-
 autoload -Uz compinit && compinit
 zstyle ':completion::complete:*' use-cache true
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -32,16 +23,20 @@ alias ls='ls -hFG'
 alias ll='ls -laG'
 
 export VISUAL="vim"
-export PATH=$HOME/.cargo/bin:$PATH
 export PATH=~/.local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+# for n(nodeの管理) 
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
+# PATHの重複削除
+typeset -U path PATH
 
 if [[ -t 0 ]]; then
     stty stop undef
     stty stop undef
 fi
 
-# for tmux, ctrl-aで先頭に, ctrl-pでコマンド1個前etc
+# for tmux, emacs風にctrl-aで先頭に, ctrl-pでコマンド1個前etc
 bindkey -e
 
 export HISTFILE=${HOME}/.zsh_history
@@ -51,8 +46,5 @@ setopt inc_append_history
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt EXTENDED_HISTORY
-
-export N_PREFIX=$HOME/.n
-export PATH=$N_PREFIX/bin:$PATH
 
 eval "$(starship init zsh)"
