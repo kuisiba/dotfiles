@@ -82,6 +82,14 @@ if executable('intelephense')
         \ })
 endif
 
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+
 let g:asyncomplete_smart_completion = 1
 let g:asyncomplete_auto_popup = 1
 let g:lsp_async_completion = 1
