@@ -46,5 +46,6 @@ setopt inc_append_history
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt EXTENDED_HISTORY
+setopt share_history
 
 eval "$(starship init zsh)"
