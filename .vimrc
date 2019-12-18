@@ -7,6 +7,7 @@ set title "file name
 set ambiwidth=double "全角記号の表示ズレ対策
 
 set foldmethod=indent "折り畳み
+set foldlevel=120 "file open時の折りたたみレベル　全開きになりそうなでかそうな数値を入れている
 
 set cursorline
 hi clear cursorline
@@ -52,6 +53,7 @@ Plug 'posva/vim-vue'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'previm/previm'
+Plug 'sainnhe/edge'
 Plug 'ayu-theme/ayu-vim'
 Plug 'arcticicestudio/nord-vim'
 
@@ -125,7 +127,7 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "colorscheme ayu
 "let ayucolor="dark"
-colorscheme nord
+colorscheme edge
 
 "indent setting
 set tabstop=4 "インデントの幅
