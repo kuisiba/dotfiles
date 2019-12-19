@@ -53,8 +53,6 @@ Plug 'posva/vim-vue'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'previm/previm'
-Plug 'sainnhe/edge'
-Plug 'ayu-theme/ayu-vim'
 Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
@@ -121,13 +119,19 @@ let g:rustfmt_autosave = 1
 "previm setting
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 
+"行番号の色替え
+augroup nord-theme-overrides
+  autocmd!
+  " Use 'nord7' as foreground color for Vim comment titles.
+  autocmd ColorScheme nord highlight LineNr ctermfg=14 guifg=#8FBCBB
+augroup END
 "colorscheme setting
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "colorscheme ayu
 "let ayucolor="dark"
-colorscheme edge
+colorscheme nord
 
 "indent setting
 set tabstop=4 "インデントの幅
