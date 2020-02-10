@@ -3,3 +3,9 @@ show_always = true
 
 [package]
 disabled = true
+
+[python]
+disabled = true
+
+[ruby]
+disabled = true
