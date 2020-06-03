@@ -54,6 +54,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'previm/previm'
 Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
@@ -90,6 +92,30 @@ if executable('pyls')
         \ })
 endif
 
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
+
+function! s:clang_format()
+  let now_line = line(".")
+  exec ":%! clang-format"
+  exec ":" . now_line
+endfunction
+
+if executable('clang-format')
+  augroup cpp_clang_format
+    autocmd!
+    autocmd BufWrite,FileWritePre,FileAppendPre *.[ch]pp call s:clang_format()
+  augroup END
+  augroup c_calng_format
+      autocmd BufWrite,FileWritePre,FileAppendPre *.[ch] call s:clang_format()
+  augroup END
+endif
+
 let g:asyncomplete_smart_completion = 1
 let g:asyncomplete_auto_popup = 1
 let g:lsp_async_completion = 1
@@ -119,18 +145,16 @@ let g:rustfmt_autosave = 1
 "previm setting
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 
-"行番号の色替え
+"nord行番号の色替え
 augroup nord-theme-overrides
   autocmd!
   " Use 'nord7' as foreground color for Vim comment titles.
   autocmd ColorScheme nord highlight LineNr ctermfg=14 guifg=#8FBCBB
 augroup END
-"colorscheme setting
+""colorscheme setting
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"colorscheme ayu
-"let ayucolor="dark"
 colorscheme nord
 
 "indent setting
@@ -150,6 +174,7 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.vue setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.json setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.[ch] setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 "vim-indent-guides setting
