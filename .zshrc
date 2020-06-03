@@ -30,6 +30,8 @@ export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
 # for rust
 export PATH=$HOME/.cargo/bin:$PATH
+# for clangd
+export PATH=/usr/local/opt/llvm/bin:$PATH
 # PATHの重複削除
 typeset -U path PATH
 
