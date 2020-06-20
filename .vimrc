@@ -20,7 +20,12 @@ set ignorecase
 set smartcase
 set wrapscan "検索時、最後までいったら最初に戻る
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
-set clipboard+=unnamed
+
+if has("mac")
+    set clipboard+=unnamed
+elseif has("unix")
+    set clipboard=unnamedplus
+endif
 
 set list "tabと半角スペースを可視化
 set listchars=tab:>-,trail:-,eol:↵

@@ -35,6 +35,14 @@ export PATH=/usr/local/opt/llvm/bin:$PATH
 # PATHの重複削除
 typeset -U path PATH
 
+case ${OSTYPE} in
+    linux*)
+        export GTK_IM_MODULE=fcitx
+        export XMODIFIERS=@im=fcitx
+        export QT_IM_MODULE=fcitx
+        ;;
+esac
+
 if [[ -t 0 ]]; then
     stty stop undef
     stty stop undef
