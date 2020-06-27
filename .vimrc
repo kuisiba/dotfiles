@@ -27,6 +27,22 @@ elseif has("unix")
     set clipboard=unnamedplus
 endif
 
+" ESC押したときにIMEもOFF
+if has("unix")
+    let g:input_toggle = 1
+    function! Fcitx2en()
+       let s:input_status = system("fcitx-remote")
+       if s:input_status == 2
+          let g:input_toggle = 1
+          let l:a = system("fcitx-remote -c")
+       endif
+    endfunction
+
+    set ttimeoutlen=150
+    "Leave Insert mode
+    autocmd InsertLeave * call Fcitx2en()
+endif
+
 set list "tabと半角スペースを可視化
 set listchars=tab:>-,trail:-,eol:↵
 
