@@ -8,9 +8,6 @@ zstyle ':completion:*' list-colors "${LS_COLORS}"
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
-#PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$reset_color%}%#"
-#RPROMPT='%{$fg_no_bold[yellow]%}[%~]%{$reset_color%}${vcs_info_msg_0_}'
-
 autoload -Uz compinit && compinit
 zstyle ':completion::complete:*' use-cache true
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -30,17 +27,18 @@ export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
 # for rust
 export PATH=$HOME/.cargo/bin:$PATH
-# for clangd
-export PATH=/usr/local/opt/llvm/bin:$PATH
-# PATHの重複削除
-typeset -U path PATH
 
 case ${OSTYPE} in
     linux*)
         export GTK_IM_MODULE=fcitx
         export XMODIFIERS=@im=fcitx
         export QT_IM_MODULE=fcitx
+        # ruby
+        export PATH=/home/kuisiba/.gem/ruby/2.7.0/bin:$PATH
         ;;
+    darwin*)
+        # for clangd
+        export PATH=/usr/local/opt/llvm/bin:$PATH
 esac
 
 if [[ -t 0 ]]; then
@@ -59,5 +57,9 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt EXTENDED_HISTORY
 setopt share_history
+
+# PATHの重複削除
+typeset -U path PATH
+
 
 eval "$(starship init zsh)"
