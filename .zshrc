@@ -16,8 +16,15 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias grep="grep --color=always --exclude='*.swp' --exclude-dir='.git'"
-alias ls='ls -hFG'
-alias ll='ls -laG'
+case ${OSTYPE} in
+    linux*)
+        alias ls='ls -hF --color'
+        alias ll='ls -la --color'
+        ;;
+    darwin*)
+        alias ls='ls -hFG'
+        alias ll='ls -laG'
+esac
 
 export VISUAL="vim"
 export PATH=~/.local/bin:$PATH
