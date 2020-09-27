@@ -27,7 +27,7 @@ window:
   # If both are `0`, this setting is ignored.
   dimensions:
     columns: 160
-    lines: 48
+    lines: 56
 
   # Window position (changes require restart)
   #
