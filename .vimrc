@@ -105,10 +105,15 @@ if executable('intelephense')
         \ })
 endif
 
+" for mac
+" pyenvがインストールされていることが前提。
+if has("mac")
+    let g:pyls_path = '/Users/kuisiba/.pyenv/shims/pyls'
+endif
 if executable('pyls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
+        \ 'cmd': {server_info->[expand(g:pyls_path)]},
         \ 'whitelist': ['python'],
         \ })
 endif
