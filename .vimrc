@@ -178,8 +178,8 @@ let g:previm_open_cmd = 'open -a Google\ Chrome'
 "nord行番号の色替え
 augroup nord-theme-overrides
   autocmd!
-  " Use 'nord7' as foreground color for Vim comment titles.
   autocmd ColorScheme nord highlight LineNr ctermfg=14 guifg=#8FBCBB
+  autocmd ColorScheme nord highlight Comment ctermfg=31
 augroup END
 ""colorscheme setting
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
