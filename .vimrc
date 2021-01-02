@@ -59,7 +59,7 @@ syntax on
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'cohama/lexima.vim'
+"Plug 'cohama/lexima.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'prabirshrestha/async.vim'
