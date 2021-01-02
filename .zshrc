@@ -34,6 +34,9 @@ export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
 # for rust
 export PATH=$HOME/.cargo/bin:$PATH
+# for python
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
 
 case ${OSTYPE} in
     linux*)
@@ -70,3 +73,6 @@ typeset -U path PATH
 
 
 eval "$(starship init zsh)"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
