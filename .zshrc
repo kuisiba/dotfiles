@@ -15,7 +15,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias grep="grep --color=always --exclude='*.swp' --exclude-dir='.git'"
+alias grep="grep --color=auto --exclude='*.swp' --exclude-dir='.git'"
 case ${OSTYPE} in
     linux*)
         alias ls='ls -hF --color'
