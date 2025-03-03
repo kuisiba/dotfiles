@@ -29,9 +29,6 @@ esac
 export VISUAL="vim"
 export PATH=~/.local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
-# for n(nodeの管理) 
-export N_PREFIX=$HOME/.n
-export PATH=$N_PREFIX/bin:$PATH
 # for rust
 export PATH=$HOME/.cargo/bin:$PATH
 # for python
