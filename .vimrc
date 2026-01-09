@@ -21,6 +21,8 @@ set smartcase
 set wrapscan "検索時、最後までいったら最初に戻る
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
 
+let mapleader = "g"
+
 if has("mac")
     set clipboard+=unnamed
 elseif has("unix")
@@ -59,51 +61,16 @@ syntax on
 
 call plug#begin('~/.vim/plugged')
 
-"Plug 'cohama/lexima.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-"Plug 'ryanolsonx/vim-lsp-javascript'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'npm install', 
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-Plug 'posva/vim-vue'
-Plug 'airblade/vim-gitgutter'
-Plug 'SirVer/ultisnips'
-Plug 'previm/previm'
 Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
-Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
-
-if executable('typescript-language-server')
-    au User lsp_setup call lsp#register_server({
-      \ 'name': 'typescript-language-server',
-      \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-      \ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact', 'typescript', 'typescript.tsx', 'typescriptreact']
-      \ })
-endif
-
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
-
-if executable('intelephense')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'intelephense',
-        \ 'cmd': {server_info->['node', expand('/Users/kuisiba/.nodebrew/node/v10.15.3/lib/node_modules/intelephense/lib/intelephense.js'), '--stdio']},
-        \ 'whitelist': ['php'],
-        \ })
-endif
 
 " for mac
 " pyenvがインストールされていることが前提。

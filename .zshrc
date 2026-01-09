@@ -26,14 +26,26 @@ case ${OSTYPE} in
         alias ll='ls -laG'
 esac
 
+# PATHの重複削除
+typeset -U path PATH
+
+path=(
+  /opt/homebrew/bin(N-/)
+  /opt/homebrew/sbin(N-/)
+  /usr/bin
+  /usr/sbin
+  /bin
+  /sbin
+  /usr/local/bin(N-/)
+  /usr/local/sbin(N-/)
+  /Library/Apple/usr/bin
+)
+
 export VISUAL="vim"
 export PATH=~/.local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 # for rust
 export PATH=$HOME/.cargo/bin:$PATH
-# for python
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
 
 case ${OSTYPE} in
     linux*)
@@ -65,11 +77,5 @@ setopt hist_ignore_space
 setopt EXTENDED_HISTORY
 setopt share_history
 
-# PATHの重複削除
-typeset -U path PATH
-
-
+eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
